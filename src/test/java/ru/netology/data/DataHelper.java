@@ -6,50 +6,39 @@ public class DataHelper {
     private DataHelper() {
     }
 
-    @Value
-    public static class AuthInfo {
-        private String login;
-        private String password;
-    }
-
     public static AuthInfo getAuthInfo() {
         return new AuthInfo("vasya", "qwerty123");
     }
 
-
-    @Value
-    public static class VerificationCode {
-        private String code;
-    }
-
-    public static VerificationCode getVerificationCodeFor(AuthInfo authInfo) {
+    public static VerificationCode getVerificationCodeFor() {
         return new VerificationCode("12345");
     }
 
-    @Value
-    public static class FirstCard {
-        private String number;
+    public static CardInfo getFirstCard() {
+        return new CardInfo("5559 0000 0000 0001");
     }
 
-    public static FirstCard getFirstCard() {
-        return new FirstCard("5559 0000 0000 0001");
+    public static CardInfo getSecondCard() {
+        return new CardInfo("5559 0000 0000 0002");
     }
 
-    @Value
-    public static class SecondCard {
-        private String number;
-    }
-
-    public static SecondCard getSecondCard() {
-        return new SecondCard("5559 0000 0000 0002");
+    public static CardInfo getInvalidCard() {
+        return new CardInfo("5559 0000 0000 0000");
     }
 
     @Value
-    public static class InvalidCard {
-        private String number;
+    public static class AuthInfo {
+        String login;
+        String password;
     }
 
-    public static InvalidCard getInvalidCard() {
-        return new InvalidCard("5559 0000 0000 0000");
+    @Value
+    public static class VerificationCode {
+        String code;
+    }
+
+    @Value
+    public static class CardInfo {
+        String number;
     }
 }
